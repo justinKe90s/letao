@@ -78,10 +78,13 @@ ul {
     height: 40px;
     line-height: 40px;
     padding-left: 50px;
-    color: #fff;
+    color: #ccc;
+    border-left: 3px solid transparent;
 }
 .lt_aside .nav a.active {
+    border-left-color: #069;
     background-color: #1d1f21;
+    color: #fff;
 }
 .lt_aside .nav .second a {
     padding-left: 68px;
@@ -110,6 +113,7 @@ ul {
     padding-right: 15px;
     margin: 0 auto;
 }
+.table.table-bordered th,
 .table.table-bordered td {
     text-align: center;
     vertical-align: middle;
