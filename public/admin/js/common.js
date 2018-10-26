@@ -22,7 +22,7 @@ $('.lt_topbar .menuToggle').on('click', function() {
 //退出功能
 $('.loginOut').on('click', function() {
     // console.log(2)
-    $('#myModal').modal('show');
+    $('#logoutModal').modal('show');
 })
 
 //退出管理系统

@@ -4,6 +4,9 @@ body {
 .mt_150 {
     margin-top: 150px;
 }
+.mb_20 {
+    margin-bottom: 20px;
+}
 a:link,
 a:visited,
 a:hover,
