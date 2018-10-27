@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css">
     <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
     <link rel="stylesheet" href="./css/comon.css">
+    <link rel="stylesheet" href="./css/second.css">
 </head>
 
 <body>
@@ -31,12 +32,12 @@
                         <span class="glyphicon glyphicon-list"></span>
                         分类管理
                     </a>
-                    <div class="second" style="display: none;">
+                    <div class="second" style="display: block;">
                         <a href="first.html">一级分类</a>
-                        <a href="second.html">二级分类 </a>
+                        <a class="active" href="second.html">二级分类 </a>
                     </div>
                 </li>
-                <li><a href="product.html" class="active"><span class="glyphicon glyphicon-tags"></span> 商品管理</a></li>
+                <li><a href="product.html"><span class="glyphicon glyphicon-tags"></span> 商品管理</a></li>
             </ul>
         </div>
     </div>
@@ -53,34 +54,22 @@
         </div>
         <div class="container_fluid">
             <ol class="breadcrumb">
-                <li><a href="#">管理系统</a></li>
-                <li>商品管理</li>
+                <li><a href="#">系统管理</a></li>
+                <li>二级分类管理</li>
             </ol>
             <div class="lt_content">
-                <button class="btn btn-default mb_20 btn-add1">添加商品</button>
+                <button class="btn btn-default mb_20 btn-add">添加分类</button>
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
                             <th width="10%">序号</th>
-                            <th width="25%">商品名称</th>
-                            <th width="25%">商品描述</th>
-                            <th width="10%">商品库存</th>
-                            <th width="10%">商品尺寸</th>
-                            <th width="10%">商品状态</th>
-                            <th width="10%">操作</th>
+                            <th width="30%">一级分类名称</th>
+                            <th width="30%">二级分类名称</th>
+                            <th width="30%">二级分类LOGO</th>
                         </tr>
                     </thead>
                     <tbody>
                         <!--挖个坑-->
-                        <tr>
-                            <td>1</td>
-                            <td>匡威三星标1970s converse复刻 142334c 144757c三星标黑色高帮</td>
-                            <td>描述123123</td>
-                            <td>999</td>
-                            <td>35-45</td>
-                            <td>在售</td>
-                            <td><button class="btn btn-danger btn-sm">下架</button></td>
-                        </tr>
                     </tbody>
                 </table>
 
@@ -125,8 +114,35 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="text" autocomplete="off" name="categoryName" class="form-control" id="category"
-                                placeholder="请输入一级分类名称">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                                    data-toggle="dropdown">
+                                    <span class="dropdown-text">请选择一级分类</span>
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <!-- 挖个坑 -->
+                                </ul>
+
+                                <!-- 使用隐藏表单存一级分类的ID -->
+                                <input type="hidden" name="categoryId" id="hid_form">
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" autocomplete="off" name="brandName" class="form-control" id="category"
+                                placeholder="请输入二级分类名称">
+                        </div>
+                        <div class="form-group">
+                            <label for="file" class="btn btn-default">上传图片</label>
+                            <input type="file" id="file" name="pic1" data-url="/category/addSecondCategoryPic" style="display: none;">
+                            
+                            <!-- hot分类 -->
+                            <input type="hidden" name="hot" value='1'>
+                        </div>
+                        <div class="form-group img-box">
+                            <img >
+                            <input type="hidden" name="brandLogo">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -139,22 +155,37 @@
     </div><!-- /.modal -->
 
 
-    <!-- 模板引擎 -->
-    <!-- <script type="text/html" id="tmp">
+    <!-- second category模板引擎 -->
+    <script type="text/html" id="tmp">
         {{each rows v i}}
-
+            <tr>
+                <td>{{(page - 1) * size + i + 1}}</td>
+                <td>{{v.categoryName}}</td>
+                <td>{{v.brandName}}</td>
+                <td class="img_box"><img src="{{v.brandLogo}}"></td>
+            </tr>
         {{/each}}
-    </script> -->
+    </script>
+
+    <!-- top category模板引擎 -->
+    <script type="text/html" id="tmp-1">
+        {{each rows v i}}
+            <li data-id="{{v.id}}"><a href="javascript: void(0)">{{v.categoryName}}</a></li>
+        {{/each}}
+    </script>
 
 
-    <script src="./lib/jquery/jquery.min.js"></script>
+    <script src="./lib/jquery/jquery.js"></script>
     <script src="./lib/bootstrap/js/bootstrap.js"></script>
     <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
     <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
     <script src="./lib/nprogress/nprogress.js"></script>
     <script src="./lib/artTemplate/template-web.js"></script>
+    <!-- 文件上传插件 -->
+    <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+    <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
     <script src="./js/common.js"></script>
-    <script src="./js/product.js"></script>
+    <script src="./js/second.js"></script>
 
 </body>
 
