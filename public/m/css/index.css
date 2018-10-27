@@ -1,0 +1,38 @@
+/*
+ * @Author: justin_yke 
+ * @Date: 2018-10-27 22:30:49 
+ * @Last Modified by: justin_yke
+ * @Last Modified time: 2018-10-27 23:42:40
+ */
+.nav {
+  padding: 10px;
+}
+.nav li {
+  float: left;
+  width: 33.3%;
+}
+.nav li img {
+  width: 100%;
+  display: block;
+}
+.product {
+  padding: 0 10px 10px;
+}
+.product .item {
+  margin-top: 10px;
+  float: left;
+  width: 49%;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+}
+.product .item span:first-child {
+  color: red;
+}
+.product .item span:last-child {
+  text-decoration: line-through;
+}
+.product .item:nth-child(odd) {
+  margin-right: 2%;
+}
